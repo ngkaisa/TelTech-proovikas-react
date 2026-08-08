@@ -729,15 +729,11 @@ a { color: inherit; }
     justify-content: center;
 }
 
-/* Profiilinimed: firstName bold, lastName kerge — suuruse ühtlustus */
-.tt-profile__first-name {
-    font-size: .7rem !important;
-    font-weight: 400 !important;
-    opacity: .8;
-}
+/* Profiilinimed: ühtlane font, sama kaal */
+.tt-profile__first-name,
 .tt-profile__last-name {
     font-size: .82rem !important;
-    font-weight: 700 !important;
+    font-weight: 400 !important;
     height: auto !important;
     opacity: 1 !important;
 }
