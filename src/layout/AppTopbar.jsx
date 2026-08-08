@@ -99,8 +99,8 @@ export default function AppTopbar() {
 
     const profileProps = isLoggedIn ? {
         profile: {
-            firstName: currentRole === ROLES.EXT ? 'Väline' : 'Demo',
-            lastName: ROLE_LABELS[currentRole],
+            firstName: 'Mari',
+            lastName: 'Maasikas',
         },
         onLogout: () => setRole(ROLES.GUEST),
         links: canSeeOwnBookings ? [
