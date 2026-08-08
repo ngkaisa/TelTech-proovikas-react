@@ -714,6 +714,35 @@ a { color: inherit; }
 }
 
 /* ══════════════════════════════════════════════════════════════════
+   CVI HEADER — kohandused (joondus, profiilinimed)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Profiili nimed: CVI vaikimisi text-align: right → joondame vasakule
+   et see vastaks tt-roles__active-role__label-wrapper: flex-start joondusele */
+.tt-profile__names {
+    text-align: left !important;
+}
+
+/* Mõlemad sektsioonid (roll + profiil) vertikaalselt tsentreeritud */
+.tt-profile__names,
+.tt-roles__active-role__label-wrapper {
+    justify-content: center;
+}
+
+/* Profiilinimed: firstName bold, lastName kerge — suuruse ühtlustus */
+.tt-profile__first-name {
+    font-size: .7rem !important;
+    font-weight: 400 !important;
+    opacity: .8;
+}
+.tt-profile__last-name {
+    font-size: .82rem !important;
+    font-weight: 700 !important;
+    height: auto !important;
+    opacity: 1 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
    RESPONSIVE — Väike mobiil (≤480px)
    ══════════════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
