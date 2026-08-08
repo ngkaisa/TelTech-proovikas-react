@@ -709,6 +709,8 @@ a { color: inherit; }
   .bron-btn { padding: .45rem 1.1rem; font-size: .83rem; }
   /* Töölaud */
   .bron-toolaud-grid { grid-template-columns: 1fr !important; }
+  /* Tühistamiste graafikute grid */
+  .bron-tuhistamised-grid { grid-template-columns: 1fr !important; }
 }
 
 /* ══════════════════════════════════════════════════════════════════

@@ -2,7 +2,7 @@ import { BarElement, CategoryScale, Chart, LinearScale, Tooltip } from 'chart.js
 import { Bar } from 'react-chartjs-2';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getRoomFeedback } from '../../BronBookingsService';
-import { getRoomDetail, RUUMID, getKpiSummary } from '../../BronStatisticsService';
+import { getKpiSummary, getRoomDetail, RUUMID } from '../../BronStatisticsService';
 import BronBreadcrumbs from '../../components/bron/BronBreadcrumbs';
 import KpiKaart from '../../components/bron/KpiKaart';
 import LigipaasPuudub from '../../components/bron/LigipaasPuudub';
@@ -185,7 +185,7 @@ export default function StatistikaRuumiDetail() {
                     <div className="bron-table-wrap">
                         <table className="bron-table">
                             <thead>
-                                <tr><th>Algus</th><th>Lõpp</th><th>Sündmus</th><th>Allikas</th><th>Staatus</th></tr>
+                                <tr><th>Algus</th><th>Lõpp</th><th>Sündmus</th><th>Allikas</th><th>Andur</th><th>Staatus</th></tr>
                             </thead>
                             <tbody>
                                 {broneeringud.map(b => (
@@ -197,6 +197,13 @@ export default function StatistikaRuumiDetail() {
                                             <span style={{ fontSize: '.72rem', fontWeight: 600, padding: '.15rem .5rem', borderRadius: 20, background: b.allikas === 'tunniplaan' ? '#dbeafe' : '#f3f0ff', color: b.allikas === 'tunniplaan' ? '#1e40af' : 'var(--tt-purple-500)' }}>
                                                 {b.allikas === 'tunniplaan' ? 'Tunniplaan' : 'Kasutaja'}
                                             </span>
+                                        </td>
+                                        <td title={b.staatus === 'loppenud' ? (b.andur_kasutusel ? 'Andur tuvastas kasutuse' : 'Andur ei tuvastanud kasutust') : '—'}>
+                                            {b.staatus === 'loppenud' ? (
+                                                <span style={{ fontSize: '.72rem', fontWeight: 600, padding: '.15rem .5rem', borderRadius: 20, background: b.andur_kasutusel ? '#d1fae5' : '#fee2e2', color: b.andur_kasutusel ? '#065f46' : '#991b1b' }}>
+                                                    {b.andur_kasutusel ? '✓ kasutuses' : '✗ tühi'}
+                                                </span>
+                                            ) : <span style={{ color: '#9ca3af', fontSize: '.72rem' }}>—</span>}
                                         </td>
                                         <td>
                                             <span style={{ fontSize: '.72rem', fontWeight: 600, padding: '.15rem .5rem', borderRadius: 20, background: b.staatus === 'tuhistatud' ? '#fee2e2' : b.staatus === 'loppenud' ? '#f3f4f6' : '#d1fae5', color: b.staatus === 'tuhistatud' ? '#991b1b' : b.staatus === 'loppenud' ? '#6b7280' : '#065f46' }}>
